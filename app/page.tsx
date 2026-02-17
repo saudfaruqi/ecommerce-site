@@ -20,7 +20,7 @@ const products = [
     price: 44.00,
     thc: '22%',
     description: 'Uplifting tropical flavors with energizing effects',
-    image: "/src/jamaican-dream.webp",
+    image: "/jamaican-dream.webp",
     slug: 'jamaican-dream',
     effects: ['Creative', 'Energetic', 'Focused']
   },
@@ -31,7 +31,7 @@ const products = [
     price: 25.00,
     thc: '20%',
     description: 'Balanced hybrid with earthy, pine notes',
-    image: "/src/colombian-OG.webp",
+    image: "/colombian-OG.webp",
     slug: 'colombian-og',
     effects: ['Relaxed', 'Happy', 'Euphoric']
   },
@@ -42,7 +42,7 @@ const products = [
     price: 30.00,
     thc: '24%',
     description: 'Sativa-dominant with citrus and spice profile',
-    image: "/src/El-Patron.webp",
+    image: "/El-Patron.webp",
     slug: 'el-patron',
     effects: ['Uplifted', 'Creative', 'Social']
   },
@@ -53,17 +53,17 @@ const products = [
     price: 38.00,
     thc: '19%',
     description: 'Deep relaxation with sweet grape undertones',
-    image: "/src/indica-bg.webp",
+    image: "/indica-bg.webp",
     slug: 'purple-kush',
     effects: ['Relaxed', 'Sleepy', 'Peaceful']
   }
 ];
 
 const categories = [
-  { name: 'Clones & Teens', icon: '🌱', count: 15, desc: 'Healthy genetics ready to grow',  image: "/src/Clones-Teens.webp" },
-  { name: 'Flowers',        icon: '🌸', count: 32, desc: 'Premium dried flower strains',     image: "/src/Flowers.webp" },
-  { name: 'Concentrates',   icon: '💎', count: 18, desc: 'Pure extracts and oils',           image: "/src/Concentrates.webp" },
-  { name: 'Soil',           icon: '🪴', count: 8,  desc: 'Organic growing medium',           image: "/src/Soil.webp" }
+  { name: 'Clones & Teens', icon: '🌱', count: 15, desc: 'Healthy genetics ready to grow',  image: "/Clones-Teens.webp" },
+  { name: 'Flowers',        icon: '🌸', count: 32, desc: 'Premium dried flower strains',     image: "/Flowers.webp" },
+  { name: 'Concentrates',   icon: '💎', count: 18, desc: 'Pure extracts and oils',           image: "/Concentrates.webp" },
+  { name: 'Soil',           icon: '🪴', count: 8,  desc: 'Organic growing medium',           image: "/Soil.webp" }
 ];
 
 const features = [
@@ -459,7 +459,7 @@ export default function Home() {
         {/* ── LOCAL IMAGE: imgStrains as hero background ── */}
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="/src/strains-hero.webp"
+            src="/strains-hero.webp"
             alt="Cannabis strains background"
             fill
             className="object-cover object-center"
@@ -569,7 +569,7 @@ export default function Home() {
       {/* ── LOCAL IMAGE: imgStrainsSection as background ── */}
       <section className="strain-types py-32 relative overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/src/strains-section.webp" alt="Strains section background" fill className="object-cover object-center" />
+          <Image src="/strains-section.webp" alt="Strains section background" fill className="object-cover object-center" />
           <div className="absolute inset-0 bg-white/92" />
         </div>
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full relative z-10">
@@ -804,7 +804,7 @@ export default function Home() {
             <div className="split-image relative h-[600px] overflow-hidden">
               <div className="scale-reveal absolute inset-0">
                 <Image
-                  src="/src/jamaican-dream.webp"
+                  src="/jamaican-dream.webp"
                   alt="Cannabis cultivation"
                   fill
                   className="object-cover"
@@ -845,7 +845,7 @@ export default function Home() {
       <section className="relative h-[70vh] overflow-hidden">
         <div className="parallax-image absolute inset-0 scale-110">
           <Image
-            src="/src/colombian-OG.webp"
+            src="/colombian-OG.webp"
             alt="Premium cannabis"
             fill
             className="object-cover"

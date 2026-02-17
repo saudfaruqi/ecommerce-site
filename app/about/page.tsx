@@ -210,7 +210,7 @@ export default function AboutPage() {
       <section ref={heroRef} className="min-h-[80vh] bg-emerald-950 relative overflow-hidden flex items-center">
         <div className="absolute inset-0 opacity-25">
           <Image
-            src="/src/Strains.webp"
+            src="/Strains.webp"
             alt="Cannabis background"
             fill
             className="object-cover object-center"
@@ -255,7 +255,7 @@ export default function AboutPage() {
       <section className="relative h-[70vh] overflow-hidden">
         <div ref={imageParallaxRef} className="absolute inset-0 scale-110">
           <Image
-            src="/src/strains-section.webp"
+            src="/strains-section.webp"
             alt="Cannabis cultivation"
             fill
             className="object-cover"
@@ -293,7 +293,7 @@ export default function AboutPage() {
             {/* Large card — ── LOCAL IMAGE: imgElPatron as background ── */}
             <div className="value-box md:col-span-8 relative overflow-hidden text-stone-50 p-12 lg:p-16 min-h-[360px] flex items-end">
               <Image
-                src="/src/El-Patron.webp"
+                src="/El-Patron.webp"
                 alt="Uncompromising quality cannabis"
                 fill
                 className="object-cover"
@@ -322,7 +322,7 @@ export default function AboutPage() {
             {/* Medium card — ── LOCAL IMAGE: imgCloneTeens as background ── */}
             <div className="value-box md:col-span-5 relative overflow-hidden min-h-[280px]">
               <Image
-                src="/src/Clones-Teens.webp"
+                src="/Clones-Teens.webp"
                 alt="Sustainable cannabis clones"
                 fill
                 className="object-cover"
@@ -443,7 +443,7 @@ export default function AboutPage() {
             {/* ── LOCAL IMAGE: imgJamaicanDream on the right ── */}
             <div className="relative h-[600px] overflow-hidden rounded-sm">
               <Image
-                src="/src/jamaican-dream.webp"
+                src="/jamaican-dream.webp"
                 alt="Expert cannabis cultivation"
                 fill
                 className="object-cover"
@@ -463,7 +463,7 @@ export default function AboutPage() {
       <section className="stats-section py-32 relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/src/Flowers.webp"
+            src="/Flowers.webp"
             alt="Premium flowers background"
             fill
             className="object-cover object-center"
@@ -494,7 +494,7 @@ export default function AboutPage() {
       {/* ── LOCAL IMAGE: imgConcentrates as full-bleed banner ── */}
       <section className="relative h-[55vh] overflow-hidden">
         <Image
-          src="/src/Concentrates.webp"
+          src="/Concentrates.webp"
           alt="Premium cannabis concentrates"
           fill
           className="object-cover"
