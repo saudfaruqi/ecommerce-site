@@ -569,7 +569,7 @@ export default function Home() {
       {/* ── LOCAL IMAGE: imgStrainsSection as background ── */}
       <section className="strain-types py-32 relative overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/strains-section.webp" alt="Strains section background" fill className="object-cover object-center" />
+          <Image src="/strains-section.webp" alt="Strains section background" fill className="object-cover object-center blur-sm opacity-30" />
           <div className="absolute inset-0 bg-white/92" />
         </div>
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full relative z-10">
@@ -757,7 +757,7 @@ export default function Home() {
       </section>
 
       {/* Split Section - Process */}
-      <section className="split-section py-32 bg-white">
+      <section className="split-section py-32 bg-white overflow-hidden">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="split-content">
