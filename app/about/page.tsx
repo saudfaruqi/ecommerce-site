@@ -7,6 +7,17 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 
+// ── Static image imports (replacing all string src paths) ─────────────────────
+import logo from '../src/logo.png';
+import imgJamaicanDream from '../src/jamaican-dream.webp';
+import imgElPatron from '../src/El-Patron.webp';
+import imgCloneTeens from '../src/Clones-Teens.webp';
+import imgFlowers from '../src/Flowers.webp';
+import imgConcentrates from '../src/Concentrates.webp';
+import imgStrains from '../src/Strains.webp';
+import imgStrainsSection from '../src/strains-section.webp';
+// ─────────────────────────────────────────────────────────────────────────────
+
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export default function AboutPage() {
@@ -24,8 +35,8 @@ export default function AboutPage() {
         const heroTitle = document.querySelector('.hero-title');
         if (heroTitle) {
           gsap.set(heroTitle, { clearProps: 'all' });
-          const splitText = new SplitText(heroTitle, {
-            type: 'lines',
+          const splitText = new SplitText(heroTitle, { 
+            type: 'lines', 
             linesClass: 'split-line'
           });
 
@@ -47,7 +58,12 @@ export default function AboutPage() {
         if (heroDescs.length > 0) {
           gsap.set(heroDescs, { y: 30, opacity: 0 });
           gsap.to(heroDescs, {
-            y: 0, opacity: 1, duration: 0.8, stagger: 0.2, delay: 0.6, ease: 'power2.out'
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            delay: 0.6,
+            ease: 'power2.out'
           });
         }
 
@@ -70,8 +86,16 @@ export default function AboutPage() {
         if (missionTexts.length > 0 && missionRef.current) {
           gsap.set(missionTexts, { y: 50, opacity: 0 });
           gsap.to(missionTexts, {
-            scrollTrigger: { trigger: missionRef.current, start: 'top 70%' },
-            y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: 'power3.out', once: true
+            scrollTrigger: {
+              trigger: missionRef.current,
+              start: 'top 70%',
+            },
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.2,
+            ease: 'power3.out',
+            once: true
           });
         }
 
@@ -80,8 +104,15 @@ export default function AboutPage() {
         if (valueBoxes.length > 0 && valuesRef.current) {
           gsap.set(valueBoxes, { clipPath: 'inset(100% 0 0 0)', opacity: 0 });
           gsap.to(valueBoxes, {
-            scrollTrigger: { trigger: valuesRef.current, start: 'top 75%' },
-            clipPath: 'inset(0% 0 0 0)', opacity: 1, duration: 1, stagger: 0.15, ease: 'power3.inOut'
+            scrollTrigger: {
+              trigger: valuesRef.current,
+              start: 'top 75%',
+            },
+            clipPath: 'inset(0% 0 0 0)',
+            opacity: 1,
+            duration: 1,
+            stagger: 0.15,
+            ease: 'power3.inOut'
           });
         }
 
@@ -89,10 +120,19 @@ export default function AboutPage() {
         const timelineItems = document.querySelectorAll('.timeline-item');
         if (timelineItems.length > 0) {
           timelineItems.forEach((item: any, i) => {
-            gsap.set(item, { x: i % 2 === 0 ? -100 : 100, opacity: 0 });
+            gsap.set(item, { 
+              x: i % 2 === 0 ? -100 : 100,
+              opacity: 0
+            });
             gsap.to(item, {
-              scrollTrigger: { trigger: item, start: 'top 85%' },
-              x: 0, opacity: 1, duration: 0.8, ease: 'power2.out'
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 85%',
+              },
+              x: 0,
+              opacity: 1,
+              duration: 0.8,
+              ease: 'power2.out'
             });
           });
         }
@@ -102,8 +142,15 @@ export default function AboutPage() {
         if (scaleReveals.length > 0) {
           gsap.set(scaleReveals, { scale: 0.8, opacity: 0 });
           gsap.to(scaleReveals, {
-            scrollTrigger: { trigger: '.stats-section', start: 'top 80%' },
-            scale: 1, opacity: 1, duration: 1.5, stagger: 0.1, ease: 'power2.out'
+            scrollTrigger: {
+              trigger: '.stats-section',
+              start: 'top 80%',
+            },
+            scale: 1,
+            opacity: 1,
+            duration: 1.5,
+            stagger: 0.1,
+            ease: 'power2.out'
           });
         }
 
@@ -112,8 +159,15 @@ export default function AboutPage() {
         if (expertiseItems.length > 0) {
           gsap.set(expertiseItems, { x: -30, opacity: 0 });
           gsap.to(expertiseItems, {
-            scrollTrigger: { trigger: '.expertise-list', start: 'top 80%' },
-            x: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out'
+            scrollTrigger: {
+              trigger: '.expertise-list',
+              start: 'top 80%',
+            },
+            x: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power2.out'
           });
         }
 
@@ -129,11 +183,14 @@ export default function AboutPage() {
                 statCounters.forEach((counter: any) => {
                   const target = parseInt(counter.dataset.value || '0');
                   const obj = { value: 0 };
+                  
                   gsap.to(obj, {
                     value: target,
                     duration: 2,
                     ease: 'power2.inOut',
-                    onUpdate: () => { counter.textContent = Math.floor(obj.value).toString(); }
+                    onUpdate: () => {
+                      counter.textContent = Math.floor(obj.value).toString();
+                    }
                   });
                 });
                 statsAnimated = true;
@@ -143,6 +200,7 @@ export default function AboutPage() {
           });
         }
 
+        // Refresh ScrollTrigger after all animations registered
         ScrollTrigger.refresh();
 
       }, containerRef);
@@ -155,14 +213,12 @@ export default function AboutPage() {
 
   return (
     <div ref={containerRef} className="bg-stone-50">
-
-      {/* ===================== HERO ===================== */}
-      {/* ✅ Strains.webp as dark hero background */}
+      {/* Hero */}
+      {/* ── LOCAL IMAGE: imgStrains as hero background ── */}
       <section ref={heroRef} className="min-h-[80vh] bg-emerald-950 relative overflow-hidden flex items-center">
-        {/* Background image layer */}
         <div className="absolute inset-0 opacity-25">
           <Image
-            src="src/Strains.webp"
+            src={imgStrains}
             alt="Cannabis background"
             fill
             className="object-cover object-center"
@@ -171,28 +227,25 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/85 to-emerald-950/50" />
         </div>
 
-        {/* Pattern overlay on top */}
         <div className="absolute inset-0 opacity-10">
-          <div
-            style={{
-              backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.05) 35px, rgba(255,255,255,.05) 70px)'
-            }}
-            className="w-full h-full"
-          ></div>
+          <div style={{
+            backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.05) 35px, rgba(255,255,255,.05) 70px)'
+          }} className="w-full h-full"></div>
         </div>
 
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 py-20 w-full">
           <div className="max-w-5xl">
+            {/* ── LOCAL IMAGE: logo ── */}
+            <div className="mb-10">
+              <Image src={logo} alt="Brand logo" className="h-12 w-auto object-contain opacity-90" />
+            </div>
 
             <div className="flex items-center gap-3 mb-8">
               <div className="h-px w-12 bg-emerald-400"></div>
               <span className="text-emerald-400 text-sm tracking-widest uppercase font-mono">About Us</span>
             </div>
-
-            <h1
-              className="hero-title text-[clamp(2.5rem,10vw,9rem)] leading-[0.9] font-light text-stone-50 mb-12"
-              style={{ perspective: '1000px' }}
-            >
+            
+            <h1 className="hero-title text-[clamp(2.5rem,10vw,9rem)] leading-[0.9] font-light text-stone-50 mb-12" style={{ perspective: '1000px' }}>
               Redefining<br/>
               <span className="italic font-serif text-emerald-400">Cannabis</span><br/>
               Culture
@@ -203,19 +256,19 @@ export default function AboutPage() {
                 We're building a cannabis company that doesn't compromise on quality, transparency, or sustainability. Every decision we make is guided by these principles.
               </p>
               <p className="hero-desc text-lg text-stone-400 leading-relaxed">
-                Founded by a team of cannabis advocates, cultivators, and wellness professionals, we emerged from a simple belief: consumers deserve better.
+                Founded by a team of cannabis advocates, cultivators, and wellness professionals, StrainsNotName emerged from a simple belief: consumers deserve better.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===================== FULL-WIDTH PARALLAX IMAGE ===================== */}
-      {/* ✅ LOCAL IMAGE: strains-section.webp for the full-bleed parallax section */}
+      {/* Full-width parallax image */}
+      {/* ── LOCAL IMAGE: imgStrainsSection ── */}
       <section className="relative h-[70vh] overflow-hidden">
         <div ref={imageParallaxRef} className="absolute inset-0 scale-110">
           <Image
-            src="src/strains-section.webp"
+            src={imgStrainsSection}
             alt="Cannabis cultivation"
             fill
             className="object-cover"
@@ -224,14 +277,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===================== MISSION ===================== */}
+      {/* Mission */}
       <section ref={missionRef} className="py-32 bg-white">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
           <div className="max-w-4xl mx-auto">
             <div className="h-px w-16 bg-emerald-600 mb-8 mx-auto"></div>
             <h2 className="mission-text text-center text-5xl lg:text-6xl font-light text-stone-900 mb-12 leading-tight">
-              Our mission is to democratize access to{' '}
-              <span className="italic font-serif text-emerald-700">premium cannabis</span>
+              Our mission is to democratize access to <span className="italic font-serif text-emerald-700">premium cannabis</span>
             </h2>
             <p className="mission-text text-center text-xl text-stone-600 leading-relaxed max-w-3xl mx-auto">
               For too long, the cannabis industry has been plagued by inconsistency, lack of transparency, and products that fail to meet basic quality standards. We're changing that by setting a new benchmark for excellence in every aspect of our business.
@@ -240,8 +292,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===================== VALUES BENTO GRID ===================== */}
-      {/* ✅ LOCAL IMAGE: El-Patron.webp as decorative image in the bento grid */}
+      {/* Values Bento Grid */}
       <section ref={valuesRef} className="py-32 bg-stone-100">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
           <div className="mb-20">
@@ -252,11 +303,10 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            {/* Large card with image background */}
+            {/* Large card — ── LOCAL IMAGE: imgElPatron as background ── */}
             <div className="value-box md:col-span-8 relative overflow-hidden text-stone-50 p-12 lg:p-16 min-h-[360px] flex items-end">
-              {/* ✅ LOCAL IMAGE: El-Patron.webp as background of the large value card */}
               <Image
-                src="src/El-Patron.webp"
+                src={imgElPatron}
                 alt="Uncompromising quality cannabis"
                 fill
                 className="object-cover"
@@ -282,11 +332,10 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Medium card with image */}
+            {/* Medium card — ── LOCAL IMAGE: imgCloneTeens as background ── */}
             <div className="value-box md:col-span-5 relative overflow-hidden min-h-[280px]">
-              {/* ✅ LOCAL IMAGE: Clones-Teens.webp for the sustainable practices card */}
               <Image
-                src="src/Clones-Teens.webp"
+                src={imgCloneTeens}
                 alt="Sustainable cannabis clones"
                 fill
                 className="object-cover"
@@ -301,7 +350,6 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Transparency card */}
             <div className="value-box md:col-span-7 bg-emerald-50 p-12">
               <h3 className="text-3xl font-light text-stone-900 mb-6">Complete Transparency</h3>
               <ul className="space-y-4 text-stone-700 text-lg">
@@ -323,7 +371,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===================== TIMELINE ===================== */}
+      {/* Timeline */}
       <section ref={timelineRef} className="py-32 bg-white">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
           <div className="max-w-4xl mx-auto">
@@ -339,7 +387,7 @@ export default function AboutPage() {
                 {
                   year: '2022',
                   title: 'The Beginning',
-                  desc: "Three friends with a shared frustration: why was it so difficult to find consistently high-quality cannabis? We decided to build the company we wished existed."
+                  desc: 'Three friends with a shared frustration: why was it so difficult to find consistently high-quality cannabis? We decided to build the company we wished existed.'
                 },
                 {
                   year: '2023',
@@ -349,12 +397,12 @@ export default function AboutPage() {
                 {
                   year: '2024',
                   title: 'Launch',
-                  desc: "We officially opened to the public. Our curated selection of lab-tested, premium products quickly gained a loyal following."
+                  desc: 'StrainsNotName officially opened to the public. Our curated selection of lab-tested, premium products quickly gained a loyal following.'
                 },
                 {
                   year: 'Today',
                   title: 'Growing Community',
-                  desc: "Over 5,000 customers trust us for their cannabis needs. But we're just getting started—our vision is to set the industry standard."
+                  desc: 'Over 5,000 customers trust us for their cannabis needs. But we\'re just getting started—our vision is to set the industry standard.'
                 }
               ].map((milestone, i) => (
                 <div key={i} className="timeline-item grid grid-cols-12 gap-8 items-start">
@@ -372,8 +420,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===================== EXPERTISE ===================== */}
-      {/* ✅ LOCAL IMAGE: jamaican-dream.webp on the right side of the expertise split */}
+      {/* Expertise */}
       <section className="py-32 bg-emerald-950 text-stone-50">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -406,16 +453,15 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* ✅ LOCAL IMAGE: jamaican-dream.webp displayed on the right */}
+            {/* ── LOCAL IMAGE: imgJamaicanDream on the right ── */}
             <div className="relative h-[600px] overflow-hidden rounded-sm">
               <Image
-                src="src/jamaican-dream.webp"
+                src={imgJamaicanDream}
                 alt="Expert cannabis cultivation"
                 fill
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 to-transparent" />
-              {/* Floating stat badge overlay */}
               <div className="absolute bottom-8 left-8 right-8 bg-emerald-950/80 backdrop-blur-sm border border-emerald-700/40 p-6">
                 <p className="text-emerald-400 text-sm uppercase tracking-widest mb-2">Combined Experience</p>
                 <p className="text-stone-50 text-4xl font-light">20+ Years</p>
@@ -425,19 +471,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===================== STATS ===================== */}
-      {/* ✅ LOCAL IMAGE: Flowers.webp as subtle background for the stats section */}
+      {/* Stats */}
+      {/* ── LOCAL IMAGE: imgFlowers as subtle stats background ── */}
       <section className="stats-section py-32 relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="src/Flowers.webp"
+            src={imgFlowers}
             alt="Premium flowers background"
             fill
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-stone-100/92" />
         </div>
-
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -458,11 +503,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===================== CONCENTRATES SHOWCASE ===================== */}
-      {/* ✅ LOCAL IMAGE: Concentrates.webp — new section added to use this image */}
+      {/* Concentrates Showcase */}
+      {/* ── LOCAL IMAGE: imgConcentrates as full-bleed banner ── */}
       <section className="relative h-[55vh] overflow-hidden">
         <Image
-          src="src/Concentrates.webp"
+          src={imgConcentrates}
           alt="Premium cannabis concentrates"
           fill
           className="object-cover"
@@ -493,7 +538,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===================== CTA ===================== */}
+      {/* CTA */}
       <section className="py-32 bg-emerald-900 text-stone-50">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full text-center">
           <h2 className="text-6xl font-light mb-8 leading-tight">
@@ -504,14 +549,14 @@ export default function AboutPage() {
             Experience cannabis the way it should be: pure, transparent, and expertly curated.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/products"
+            <Link 
+              href="/products" 
               className="inline-flex items-center justify-center gap-3 bg-emerald-500 text-emerald-950 px-10 py-5 font-medium hover:bg-emerald-400 transition-colors"
             >
               Browse Products
             </Link>
-            <Link
-              href="/contact"
+            <Link 
+              href="/contact" 
               className="inline-flex items-center justify-center gap-3 border-2 border-stone-700 text-stone-50 px-10 py-5 font-medium hover:border-emerald-400 hover:text-emerald-400 transition-colors"
             >
               Get in Touch
