@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --foreground-rgb: 28, 25, 23;
+  --background: 250, 250, 249;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background));
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.font-serif {
+  font-family: 'Crimson Pro', serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Buttons */
+.btn-primary {
+  @apply inline-flex items-center bg-emerald-500 text-emerald-950 px-8 py-4 font-medium hover:bg-emerald-400 transition-all duration-300;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center border-2 border-stone-300 text-stone-900 px-8 py-4 font-medium hover:border-emerald-600 hover:text-emerald-700 transition-all duration-300;
+}
+
+/* Cards */
+.card {
+  @apply bg-white border border-stone-200 overflow-hidden transition-all duration-500 hover:shadow-lg;
+}
+
+/* Inputs */
+.input-field {
+  @apply w-full px-5 py-3 border-2 border-stone-200 focus:outline-none focus:border-emerald-600 transition-all duration-200 bg-white;
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+}
+
+/* Remove default animations */
+.animate-fade-in,
+.animate-fade-in-up,
+.animate-fade-in-down,
+.animate-slide-in-left,
+.animate-slide-in-right,
+.animate-scale-in,
+.animate-float,
+.animate-pulse-slow,
+.animate-glow {
+  animation: none;
+}
+
+/* Subtle transitions only */
+a, button {
+  transition: all 0.2s ease;
+}
+
+img {
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Clean hover states */
+a:hover {
+  opacity: 0.7;
+}
+
+/* Remove gradient animations */
+.animated-gradient {
+  background: rgb(5, 46, 42);
+}
+
+.gradient-mesh {
+  background: rgb(250, 250, 249);
+}
+
+/* Clean focus states */
+*:focus-visible {
+  outline: 2px solid rgb(16, 185, 129);
+  outline-offset: 2px;
+}
