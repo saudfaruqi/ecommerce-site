@@ -7,18 +7,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 
-// ── Static image imports (replacing all string src paths) ─────────────────────
-import logo from '../src/logo.png';
-import imgJamaicanDream from '../src/jamaican-dream.webp';
-import imgColombianOG from '../src/colombian-OG.webp';
-import imgElPatron from '../src/El-Patron.webp';
-import imgIndicaBg from '../src/indica-bg.webp';
-import imgCloneTeens from '../src/Clones-Teens.webp';
-import imgFlowers from '../src/Flowers.webp';
-import imgConcentrates from '../src/Concentrates.webp';
-import imgSoil from '../src/Soil.webp';
-import imgStrains from '../src/Strains.webp';
-import imgStrainsSection from '../src/strains-section.webp';
+
 // ─────────────────────────────────────────────────────────────────────────────
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -31,7 +20,7 @@ const products = [
     price: 44.00,
     thc: '22%',
     description: 'Uplifting tropical flavors with energizing effects',
-    image: imgJamaicanDream,
+    image: "/src/jamaican-dream.webp",
     slug: 'jamaican-dream',
     effects: ['Creative', 'Energetic', 'Focused']
   },
@@ -42,7 +31,7 @@ const products = [
     price: 25.00,
     thc: '20%',
     description: 'Balanced hybrid with earthy, pine notes',
-    image: imgColombianOG,
+    image: "/src/colombian-OG.webp",
     slug: 'colombian-og',
     effects: ['Relaxed', 'Happy', 'Euphoric']
   },
@@ -53,7 +42,7 @@ const products = [
     price: 30.00,
     thc: '24%',
     description: 'Sativa-dominant with citrus and spice profile',
-    image: imgElPatron,
+    image: "/src/El-Patron.webp",
     slug: 'el-patron',
     effects: ['Uplifted', 'Creative', 'Social']
   },
@@ -64,17 +53,17 @@ const products = [
     price: 38.00,
     thc: '19%',
     description: 'Deep relaxation with sweet grape undertones',
-    image: imgIndicaBg,
+    image: "/src/indica-bg.webp",
     slug: 'purple-kush',
     effects: ['Relaxed', 'Sleepy', 'Peaceful']
   }
 ];
 
 const categories = [
-  { name: 'Clones & Teens', icon: '🌱', count: 15, desc: 'Healthy genetics ready to grow',  image: imgCloneTeens },
-  { name: 'Flowers',        icon: '🌸', count: 32, desc: 'Premium dried flower strains',     image: imgFlowers },
-  { name: 'Concentrates',   icon: '💎', count: 18, desc: 'Pure extracts and oils',           image: imgConcentrates },
-  { name: 'Soil',           icon: '🪴', count: 8,  desc: 'Organic growing medium',           image: imgSoil }
+  { name: 'Clones & Teens', icon: '🌱', count: 15, desc: 'Healthy genetics ready to grow',  image: "/src/Clones-Teens.webp" },
+  { name: 'Flowers',        icon: '🌸', count: 32, desc: 'Premium dried flower strains',     image: "/src/Flowers.webp" },
+  { name: 'Concentrates',   icon: '💎', count: 18, desc: 'Pure extracts and oils',           image: "/src/Concentrates.webp" },
+  { name: 'Soil',           icon: '🪴', count: 8,  desc: 'Organic growing medium',           image: "/src/Soil.webp" }
 ];
 
 const features = [
@@ -470,7 +459,7 @@ export default function Home() {
         {/* ── LOCAL IMAGE: imgStrains as hero background ── */}
         <div className="absolute inset-0 opacity-20">
           <Image
-            src={imgStrains}
+            src="/src/strains-hero.webp"
             alt="Cannabis strains background"
             fill
             className="object-cover object-center"
@@ -492,10 +481,6 @@ export default function Home() {
 
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 py-32 w-full">
           <div className="max-w-6xl">
-            {/* ── LOCAL IMAGE: logo ── */}
-            <div className="mb-10">
-              <Image src={logo} alt="Brand logo" className="h-12 w-auto object-contain opacity-90" />
-            </div>
             
             <h1 className="hero-title text-[clamp(3rem,13vw,12rem)] leading-[0.85] font-light text-stone-50 mb-12" style={{ perspective: '1200px' }}>
               Pure<br/>
@@ -584,7 +569,7 @@ export default function Home() {
       {/* ── LOCAL IMAGE: imgStrainsSection as background ── */}
       <section className="strain-types py-32 relative overflow-hidden">
         <div className="absolute inset-0">
-          <Image src={imgStrainsSection} alt="Strains section background" fill className="object-cover object-center" />
+          <Image src="/src/strains-section.webp" alt="Strains section background" fill className="object-cover object-center" />
           <div className="absolute inset-0 bg-white/92" />
         </div>
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full relative z-10">
@@ -819,7 +804,7 @@ export default function Home() {
             <div className="split-image relative h-[600px] overflow-hidden">
               <div className="scale-reveal absolute inset-0">
                 <Image
-                  src={imgJamaicanDream}
+                  src="/src/jamaican-dream.webp"
                   alt="Cannabis cultivation"
                   fill
                   className="object-cover"
@@ -860,7 +845,7 @@ export default function Home() {
       <section className="relative h-[70vh] overflow-hidden">
         <div className="parallax-image absolute inset-0 scale-110">
           <Image
-            src={imgColombianOG}
+            src="/src/colombian-OG.webp"
             alt="Premium cannabis"
             fill
             className="object-cover"
