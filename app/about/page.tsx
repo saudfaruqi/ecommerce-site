@@ -162,7 +162,7 @@ export default function AboutPage() {
         {/* Background image layer */}
         <div className="absolute inset-0 opacity-25">
           <Image
-            src="/src/Strains.webp"
+            src="src/Strains.webp"
             alt="Cannabis background"
             fill
             className="object-cover object-center"
@@ -183,16 +183,6 @@ export default function AboutPage() {
 
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 py-20 w-full">
           <div className="max-w-5xl">
-            {/* ✅ Logo displayed in hero */}
-            <div className="mb-10">
-              <Image
-                src="/src/logo.png"
-                alt="Brand logo"
-                width={110}
-                height={36}
-                className="object-contain opacity-90"
-              />
-            </div>
 
             <div className="flex items-center gap-3 mb-8">
               <div className="h-px w-12 bg-emerald-400"></div>
@@ -225,7 +215,7 @@ export default function AboutPage() {
       <section className="relative h-[70vh] overflow-hidden">
         <div ref={imageParallaxRef} className="absolute inset-0 scale-110">
           <Image
-            src="/src/strains-section.webp"
+            src="src/strains-section.webp"
             alt="Cannabis cultivation"
             fill
             className="object-cover"
@@ -266,7 +256,7 @@ export default function AboutPage() {
             <div className="value-box md:col-span-8 relative overflow-hidden text-stone-50 p-12 lg:p-16 min-h-[360px] flex items-end">
               {/* ✅ LOCAL IMAGE: El-Patron.webp as background of the large value card */}
               <Image
-                src="/src/El-Patron.webp"
+                src="src/El-Patron.webp"
                 alt="Uncompromising quality cannabis"
                 fill
                 className="object-cover"
@@ -296,7 +286,7 @@ export default function AboutPage() {
             <div className="value-box md:col-span-5 relative overflow-hidden min-h-[280px]">
               {/* ✅ LOCAL IMAGE: Clones-Teens.webp for the sustainable practices card */}
               <Image
-                src="/src/Clones-Teens.webp"
+                src="src/Clones-Teens.webp"
                 alt="Sustainable cannabis clones"
                 fill
                 className="object-cover"
@@ -419,7 +409,7 @@ export default function AboutPage() {
             {/* ✅ LOCAL IMAGE: jamaican-dream.webp displayed on the right */}
             <div className="relative h-[600px] overflow-hidden rounded-sm">
               <Image
-                src="/src/jamaican-dream.webp"
+                src="src/jamaican-dream.webp"
                 alt="Expert cannabis cultivation"
                 fill
                 className="object-cover"
@@ -440,7 +430,7 @@ export default function AboutPage() {
       <section className="stats-section py-32 relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/src/Flowers.webp"
+            src="src/Flowers.webp"
             alt="Premium flowers background"
             fill
             className="object-cover object-center"
@@ -472,7 +462,7 @@ export default function AboutPage() {
       {/* ✅ LOCAL IMAGE: Concentrates.webp — new section added to use this image */}
       <section className="relative h-[55vh] overflow-hidden">
         <Image
-          src="/src/Concentrates.webp"
+          src="src/Concentrates.webp"
           alt="Premium cannabis concentrates"
           fill
           className="object-cover"

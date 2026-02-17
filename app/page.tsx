@@ -18,7 +18,7 @@ const products = [
     thc: '22%',
     description: 'Uplifting tropical flavors with energizing effects',
     // ✅ LOCAL IMAGE: place in /public/images/ or use Next.js import
-    image: '/src/jamaican-dream.webp',
+    image: 'src/jamaican-dream.webp',
     slug: 'jamaican-dream',
     effects: ['Creative', 'Energetic', 'Focused']
   },
@@ -30,7 +30,7 @@ const products = [
     thc: '20%',
     description: 'Balanced hybrid with earthy, pine notes',
     // ✅ LOCAL IMAGE
-    image: '/src/colombian-OG.webp',
+    image: 'src/colombian-OG.webp',
     slug: 'colombian-og',
     effects: ['Relaxed', 'Happy', 'Euphoric']
   },
@@ -42,7 +42,7 @@ const products = [
     thc: '24%',
     description: 'Sativa-dominant with citrus and spice profile',
     // ✅ LOCAL IMAGE
-    image: '/src/El-Patron.webp',
+    image: 'src/El-Patron.webp',
     slug: 'el-patron',
     effects: ['Uplifted', 'Creative', 'Social']
   },
@@ -54,7 +54,7 @@ const products = [
     thc: '19%',
     description: 'Deep relaxation with sweet grape undertones',
     // ✅ LOCAL IMAGE: indica-bg used for this product card
-    image: '/src/indica-bg.webp',
+    image: 'src/indica-bg.webp',
     slug: 'purple-kush',
     effects: ['Relaxed', 'Sleepy', 'Peaceful']
   }
@@ -67,7 +67,7 @@ const categories = [
     count: 15,
     desc: 'Healthy genetics ready to grow',
     // ✅ LOCAL IMAGE
-    image: '/src/Clones-Teens.webp'
+    image: 'src/Clones-Teens.webp'
   },
   {
     name: 'Flowers',
@@ -75,7 +75,7 @@ const categories = [
     count: 32,
     desc: 'Premium dried flower strains',
     // ✅ LOCAL IMAGE
-    image: '/src/Flowers.webp'
+    image: 'src/Flowers.webp'
   },
   {
     name: 'Concentrates',
@@ -83,7 +83,7 @@ const categories = [
     count: 18,
     desc: 'Pure extracts and oils',
     // ✅ LOCAL IMAGE
-    image: '/src/Concentrates.webp'
+    image: 'src/Concentrates.webp'
   },
   {
     name: 'Soil',
@@ -91,7 +91,7 @@ const categories = [
     count: 8,
     desc: 'Organic growing medium',
     // ✅ LOCAL IMAGE
-    image: '/src/Soil.webp'
+    image: 'src/Soil.webp'
   }
 ];
 
@@ -398,7 +398,7 @@ export default function Home() {
         {/* ✅ LOCAL IMAGE: Strains.webp as subtle hero background */}
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="/src/Strains.webp"
+            src="src/Strains.webp"
             alt="Cannabis strains background"
             fill
             className="object-cover object-center"
@@ -420,17 +420,6 @@ export default function Home() {
 
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 py-32 w-full">
           <div className="max-w-6xl">
-            {/* ✅ Logo in hero (optional — shown inline) */}
-            <div className="mb-10">
-              <Image
-                src="/src/logo.png"
-                alt="Brand logo"
-                width={120}
-                height={40}
-                className="object-contain opacity-90"
-              />
-            </div>
-
             <h1
               className="hero-title text-[clamp(3rem,13vw,12rem)] leading-[0.85] font-light text-stone-50 mb-12"
               style={{ perspective: '1200px' }}
@@ -513,7 +502,7 @@ export default function Home() {
         {/* ✅ LOCAL IMAGE: strains-section.webp as section background */}
         <div className="absolute inset-0">
           <Image
-            src="/src/strains-section.webp"
+            src="src/strains-section.webp"
             alt="Strains section background"
             fill
             className="object-cover object-center"
@@ -758,7 +747,7 @@ export default function Home() {
             <div className="split-image relative h-[600px] overflow-hidden">
               <div className="scale-reveal absolute inset-0">
                 <Image
-                  src="/src/jamaican-dream.webp"
+                  src="src/jamaican-dream.webp"
                   alt="Cannabis cultivation"
                   fill
                   className="object-cover"
@@ -799,7 +788,7 @@ export default function Home() {
       <section className="relative h-[70vh] overflow-hidden">
         <div className="parallax-image absolute inset-0 scale-110">
           <Image
-            src="/src/colombian-OG.webp"
+            src="src/colombian-OG.webp"
             alt="Premium cannabis"
             fill
             className="object-cover"
