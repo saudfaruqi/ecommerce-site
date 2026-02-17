@@ -60,10 +60,10 @@ const products = [
 ];
 
 const categories = [
-  { name: 'Clones & Teens', icon: '🌱', count: 15, desc: 'Healthy genetics ready to grow',  image: "/Clones-Teens.webp" },
-  { name: 'Flowers',        icon: '🌸', count: 32, desc: 'Premium dried flower strains',     image: "/Flowers.webp" },
-  { name: 'Concentrates',   icon: '💎', count: 18, desc: 'Pure extracts and oils',           image: "/Concentrates.webp" },
-  { name: 'Soil',           icon: '🪴', count: 8,  desc: 'Organic growing medium',           image: "/Soil.webp" }
+  { name: 'Clones & Teens', count: 15, desc: 'Healthy genetics ready to grow',  image: "/Clones-Teens.webp" },
+  { name: 'Flowers',        count: 32, desc: 'Premium dried flower strains',     image: "/Flowers.webp" },
+  { name: 'Concentrates',   count: 18, desc: 'Pure extracts and oils',           image: "/Concentrates.webp" },
+  { name: 'Soil',           count: 8,  desc: 'Organic growing medium',           image: "/Soil.webp" }
 ];
 
 const features = [
@@ -588,9 +588,8 @@ export default function Home() {
               <div className="relative pb-6">
                 <div className="absolute left-0 top-0 w-2 h-20 bg-gradient-to-b from-amber-400 to-orange-400 group-hover:h-full transition-all duration-500 rounded-full"></div>
                 <div className="ml-8 space-y-4">
-                  <div className="text-5xl">⚡</div>
                   <h3 className="text-2xl font-light text-stone-900">Sativa</h3>
-                  <p className="text-stone-600 leading-relaxed">Energizing, uplifting, and cerebral effects perfect for daytime use.</p>
+                  <p className="text-stone-100 leading-relaxed">Energizing, uplifting, and cerebral effects perfect for daytime use.</p>
                   <div className="flex items-center gap-2 text-amber-600 font-semibold group-hover:gap-4 transition-all">
                     Learn More
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -606,9 +605,8 @@ export default function Home() {
               <div className="relative pb-6">
                 <div className="absolute left-0 top-0 w-2 h-20 bg-gradient-to-b from-purple-400 to-indigo-500 group-hover:h-full transition-all duration-500 rounded-full"></div>
                 <div className="ml-8 space-y-4">
-                  <div className="text-5xl">🌙</div>
                   <h3 className="text-2xl font-light text-stone-900">Indica</h3>
-                  <p className="text-stone-600 leading-relaxed">Relaxing, calming, and body-focused effects ideal for evenings.</p>
+                  <p className="text-stone-100 leading-relaxed">Relaxing, calming, and body-focused effects ideal for evenings.</p>
                   <div className="flex items-center gap-2 text-purple-600 font-semibold group-hover:gap-4 transition-all">
                     Learn More
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -624,9 +622,8 @@ export default function Home() {
               <div className="relative pb-6">
                 <div className="absolute left-0 top-0 w-2 h-20 bg-gradient-to-b from-emerald-400 to-teal-500 group-hover:h-full transition-all duration-500 rounded-full"></div>
                 <div className="ml-8 space-y-4">
-                  <div className="text-5xl">🍃</div>
                   <h3 className="text-2xl font-light text-stone-900">Hybrid</h3>
-                  <p className="text-stone-600 leading-relaxed">Balanced blend of both effects for versatile, flexible experiences.</p>
+                  <p className="text-stone-100 leading-relaxed">Balanced blend of both effects for versatile, flexible experiences.</p>
                   <div className="flex items-center gap-2 text-emerald-600 font-semibold group-hover:gap-4 transition-all">
                     Learn More
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -739,7 +736,6 @@ export default function Home() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent" />
-                  <span className="absolute bottom-3 left-4 text-white text-3xl">{category.icon}</span>
                 </div>
                 <div className="bg-white p-6">
                   <h3 className="text-xl font-light text-stone-900 mb-1">{category.name}</h3>
