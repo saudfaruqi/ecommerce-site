@@ -569,7 +569,7 @@ export default function Home() {
       {/* ── LOCAL IMAGE: imgStrainsSection as background ── */}
       <section className="strain-types py-32 relative overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/strains-section.webp" alt="Strains section background" fill className="object-cover object-center blur-sm opacity-30" />
+          <Image src="/strains-section.webp" alt="Strains section background" fill className="object-cover object-center blur-sm opacity-70" />
           <div className="absolute inset-0 bg-white/92" />
         </div>
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full relative z-10">
@@ -589,7 +589,7 @@ export default function Home() {
                 <div className="absolute left-0 top-0 w-2 h-20 bg-gradient-to-b from-amber-400 to-orange-400 group-hover:h-full transition-all duration-500 rounded-full"></div>
                 <div className="ml-8 space-y-4">
                   <h3 className="text-2xl font-light text-stone-900">Sativa</h3>
-                  <p className="text-stone-100 leading-relaxed">Energizing, uplifting, and cerebral effects perfect for daytime use.</p>
+                  <p className="text-stone-600 leading-relaxed">Energizing, uplifting, and cerebral effects perfect for daytime use.</p>
                   <div className="flex items-center gap-2 text-amber-600 font-semibold group-hover:gap-4 transition-all">
                     Learn More
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -606,7 +606,7 @@ export default function Home() {
                 <div className="absolute left-0 top-0 w-2 h-20 bg-gradient-to-b from-purple-400 to-indigo-500 group-hover:h-full transition-all duration-500 rounded-full"></div>
                 <div className="ml-8 space-y-4">
                   <h3 className="text-2xl font-light text-stone-900">Indica</h3>
-                  <p className="text-stone-100 leading-relaxed">Relaxing, calming, and body-focused effects ideal for evenings.</p>
+                  <p className="text-stone-600 leading-relaxed">Relaxing, calming, and body-focused effects ideal for evenings.</p>
                   <div className="flex items-center gap-2 text-purple-600 font-semibold group-hover:gap-4 transition-all">
                     Learn More
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -623,7 +623,7 @@ export default function Home() {
                 <div className="absolute left-0 top-0 w-2 h-20 bg-gradient-to-b from-emerald-400 to-teal-500 group-hover:h-full transition-all duration-500 rounded-full"></div>
                 <div className="ml-8 space-y-4">
                   <h3 className="text-2xl font-light text-stone-900">Hybrid</h3>
-                  <p className="text-stone-100 leading-relaxed">Balanced blend of both effects for versatile, flexible experiences.</p>
+                  <p className="text-stone-600 leading-relaxed">Balanced blend of both effects for versatile, flexible experiences.</p>
                   <div className="flex items-center gap-2 text-emerald-600 font-semibold group-hover:gap-4 transition-all">
                     Learn More
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
