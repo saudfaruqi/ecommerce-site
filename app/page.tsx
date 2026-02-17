@@ -17,7 +17,8 @@ const products = [
     price: 44.00,
     thc: '22%',
     description: 'Uplifting tropical flavors with energizing effects',
-    image: 'https://images.unsplash.com/photo-1605792657660-596af9009e82?w=800',
+    // ✅ LOCAL IMAGE: place in /public/images/ or use Next.js import
+    image: '/src/jamaican-dream.webp',
     slug: 'jamaican-dream',
     effects: ['Creative', 'Energetic', 'Focused']
   },
@@ -28,7 +29,8 @@ const products = [
     price: 25.00,
     thc: '20%',
     description: 'Balanced hybrid with earthy, pine notes',
-    image: 'https://images.unsplash.com/photo-1608424264834-d8a5c8618ea3?w=800',
+    // ✅ LOCAL IMAGE
+    image: '/src/colombian-OG.webp',
     slug: 'colombian-og',
     effects: ['Relaxed', 'Happy', 'Euphoric']
   },
@@ -39,7 +41,8 @@ const products = [
     price: 30.00,
     thc: '24%',
     description: 'Sativa-dominant with citrus and spice profile',
-    image: 'https://images.unsplash.com/photo-1586888208653-c07dc16a6c38?w=800',
+    // ✅ LOCAL IMAGE
+    image: '/src/El-Patron.webp',
     slug: 'el-patron',
     effects: ['Uplifted', 'Creative', 'Social']
   },
@@ -50,17 +53,46 @@ const products = [
     price: 38.00,
     thc: '19%',
     description: 'Deep relaxation with sweet grape undertones',
-    image: 'https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=800',
+    // ✅ LOCAL IMAGE: indica-bg used for this product card
+    image: '/src/indica-bg.webp',
     slug: 'purple-kush',
     effects: ['Relaxed', 'Sleepy', 'Peaceful']
   }
 ];
 
 const categories = [
-  { name: 'Clones & Teens', icon: '🌱', count: 15, desc: 'Healthy genetics ready to grow' },
-  { name: 'Flowers', icon: '🌸', count: 32, desc: 'Premium dried flower strains' },
-  { name: 'Concentrates', icon: '💎', count: 18, desc: 'Pure extracts and oils' },
-  { name: 'Soil', icon: '🪴', count: 8, desc: 'Organic growing medium' }
+  {
+    name: 'Clones & Teens',
+    icon: '🌱',
+    count: 15,
+    desc: 'Healthy genetics ready to grow',
+    // ✅ LOCAL IMAGE
+    image: '/src/Clones-Teens.webp'
+  },
+  {
+    name: 'Flowers',
+    icon: '🌸',
+    count: 32,
+    desc: 'Premium dried flower strains',
+    // ✅ LOCAL IMAGE
+    image: '/src/Flowers.webp'
+  },
+  {
+    name: 'Concentrates',
+    icon: '💎',
+    count: 18,
+    desc: 'Pure extracts and oils',
+    // ✅ LOCAL IMAGE
+    image: '/src/Concentrates.webp'
+  },
+  {
+    name: 'Soil',
+    icon: '🪴',
+    count: 8,
+    desc: 'Organic growing medium',
+    // ✅ LOCAL IMAGE
+    image: '/src/Soil.webp'
+  }
 ];
 
 const features = [
@@ -129,13 +161,11 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Separate effect for GSAP animations - wait for DOM to be ready
+  // GSAP animations
   useEffect(() => {
-    // Wait for next frame to ensure DOM is fully rendered
     const timer = requestAnimationFrame(() => {
       const ctx = gsap.context(() => {
         // ===== PAGE ENTRANCE =====
-        // Only fade in the main container, not the whole body
         if (containerRef.current) {
           gsap.set(containerRef.current, { opacity: 0 });
           gsap.to(containerRef.current, { opacity: 1, duration: 0.6, ease: 'power2.inOut' });
@@ -145,8 +175,8 @@ export default function Home() {
         const heroTitle = document.querySelector('.hero-title');
         if (heroTitle) {
           gsap.set(heroTitle, { clearProps: 'all' });
-          const splitText = new SplitText(heroTitle, { 
-            type: 'lines', 
+          const splitText = new SplitText(heroTitle, {
+            type: 'lines',
             linesClass: 'split-line'
           });
 
@@ -192,10 +222,10 @@ export default function Home() {
         // ===== STATS COUNTER ANIMATION =====
         const statsSection = document.querySelector('.stats-section');
         const statValues = document.querySelectorAll('.stat-value');
-        
+
         if (statsSection && statValues.length > 0) {
           let statsAnimated = false;
-          
+
           ScrollTrigger.create({
             trigger: statsSection,
             start: 'top 75%',
@@ -204,7 +234,7 @@ export default function Home() {
                 statValues.forEach((counter) => {
                   const target = parseInt(counter.getAttribute('data-value') || '0');
                   const obj = { value: 0 };
-                  
+
                   gsap.to(obj, {
                     value: target,
                     duration: 2.5,
@@ -222,129 +252,75 @@ export default function Home() {
         }
 
         // ===== SCROLL REVEAL ANIMATIONS =====
-
-        // Featured products - Set initial state, then animate from scroll
         const productCards = document.querySelectorAll('.product-card');
         const productsGrid = document.querySelector('.products-grid');
         if (productCards.length > 0 && productsGrid) {
           gsap.set(productCards, { y: 80, opacity: 0, scale: 0.95 });
           gsap.to(productCards, {
-            scrollTrigger: {
-              trigger: productsGrid,
-              start: 'top 80%',
-            },
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 0.9,
-            stagger: 0.12,
-            ease: 'power3.out'
+            scrollTrigger: { trigger: productsGrid, start: 'top 80%' },
+            y: 0, opacity: 1, scale: 1, duration: 0.9, stagger: 0.12, ease: 'power3.out'
           });
         }
 
-        // Strain type cards - Set initial state, then animate from scroll
         const strainCards = document.querySelectorAll('.strain-card');
         const strainTypes = document.querySelector('.strain-types');
         if (strainCards.length > 0 && strainTypes) {
           gsap.set(strainCards, { clipPath: 'inset(0 100% 0 0)', opacity: 0 });
           gsap.to(strainCards, {
-            scrollTrigger: {
-              trigger: strainTypes,
-              start: 'top 75%',
-            },
-            clipPath: 'inset(0 0% 0 0)',
-            opacity: 1,
-            duration: 1,
-            stagger: 0.2,
-            ease: 'power3.inOut'
+            scrollTrigger: { trigger: strainTypes, start: 'top 75%' },
+            clipPath: 'inset(0 0% 0 0)', opacity: 1, duration: 1, stagger: 0.2, ease: 'power3.inOut'
           });
         }
 
-        // Category items - Set initial state, then animate from scroll
         const categoryItems = document.querySelectorAll('.category-item');
         const categoriesSection = document.querySelector('.categories-section');
         if (categoryItems.length > 0 && categoriesSection) {
           gsap.set(categoryItems, { y: 60, opacity: 0, rotateY: -15 });
           gsap.to(categoryItems, {
-            scrollTrigger: {
-              trigger: categoriesSection,
-              start: 'top 70%',
-            },
-            y: 0,
-            opacity: 1,
-            rotateY: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: 'back.out(1.2)'
+            scrollTrigger: { trigger: categoriesSection, start: 'top 70%' },
+            y: 0, opacity: 1, rotateY: 0, duration: 0.8, stagger: 0.15, ease: 'back.out(1.2)'
           });
         }
 
-        // Feature cards - Set initial state, then animate from scroll
         const featureCards = document.querySelectorAll('.feature-card');
         const featuresGrid = document.querySelector('.features-grid');
         if (featureCards.length > 0 && featuresGrid) {
           gsap.set(featureCards, { y: 50, opacity: 0 });
           gsap.to(featureCards, {
-            scrollTrigger: {
-              trigger: featuresGrid,
-              start: 'top 75%',
-            },
-            y: 0,
-            opacity: 1,
-            duration: 0.7,
-            stagger: 0.1,
-            ease: 'power2.out'
+            scrollTrigger: { trigger: featuresGrid, start: 'top 75%' },
+            y: 0, opacity: 1, duration: 0.7, stagger: 0.1, ease: 'power2.out'
           });
         }
 
-        // Parallax images
         const parallaxImages = document.querySelectorAll('.parallax-image');
         parallaxImages.forEach((img: any) => {
           gsap.to(img, {
             yPercent: 30,
             ease: 'none',
             scrollTrigger: {
-              trigger: img,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: 1.5
+              trigger: img, start: 'top bottom', end: 'bottom top', scrub: 1.5
             }
           });
         });
 
-        // Text reveals - Set initial state, then animate from scroll
         const revealTexts = document.querySelectorAll('.reveal-text');
         revealTexts.forEach((text: any) => {
           gsap.set(text, { y: 60, opacity: 0 });
           gsap.to(text, {
-            scrollTrigger: {
-              trigger: text,
-              start: 'top 85%',
-            },
-            y: 0,
-            opacity: 1,
-            duration: 0.9,
-            ease: 'power3.out'
+            scrollTrigger: { trigger: text, start: 'top 85%' },
+            y: 0, opacity: 1, duration: 0.9, ease: 'power3.out'
           });
         });
 
-        // Scale reveals - Set initial state, then animate from scroll
         const scaleReveals = document.querySelectorAll('.scale-reveal');
         scaleReveals.forEach((img: any) => {
           gsap.set(img, { scale: 1.3, opacity: 0 });
           gsap.to(img, {
-            scrollTrigger: {
-              trigger: img,
-              start: 'top 80%',
-            },
-            scale: 1,
-            opacity: 1,
-            duration: 1.5,
-            ease: 'power2.out'
+            scrollTrigger: { trigger: img, start: 'top 80%' },
+            scale: 1, opacity: 1, duration: 1.5, ease: 'power2.out'
           });
         });
 
-        // Split section animations - Set initial state, then animate from scroll
         const splitContent = document.querySelector('.split-content');
         const splitImage = document.querySelector('.split-image');
         const splitSection = document.querySelector('.split-section');
@@ -352,85 +328,50 @@ export default function Home() {
         if (splitContent && splitSection) {
           gsap.set(splitContent, { x: -80, opacity: 0 });
           gsap.to(splitContent, {
-            scrollTrigger: {
-              trigger: splitSection,
-              start: 'top 70%',
-            },
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            ease: 'power3.out'
+            scrollTrigger: { trigger: splitSection, start: 'top 70%' },
+            x: 0, opacity: 1, duration: 1, ease: 'power3.out'
           });
         }
 
         if (splitImage && splitSection) {
           gsap.set(splitImage, { x: 80, opacity: 0 });
           gsap.to(splitImage, {
-            scrollTrigger: {
-              trigger: splitSection,
-              start: 'top 70%',
-            },
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            ease: 'power3.out'
+            scrollTrigger: { trigger: splitSection, start: 'top 70%' },
+            x: 0, opacity: 1, duration: 1, ease: 'power3.out'
           });
         }
 
-        // Process steps - Set initial state, then animate from scroll
         const processSteps = document.querySelectorAll('.process-step');
         if (processSteps.length > 0) {
           gsap.set(processSteps, { y: 50, opacity: 0 });
           gsap.to(processSteps, {
-            scrollTrigger: {
-              trigger: '.split-section',
-              start: 'top 80%',
-            },
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
+            scrollTrigger: { trigger: '.split-section', start: 'top 80%' },
+            y: 0, opacity: 1, duration: 0.8,
             stagger: (index) => index * 0.1,
             ease: 'power2.out'
           });
         }
 
-        // Resource cards - Set initial state, then animate from scroll
         const resourceCards = document.querySelectorAll('.resource-card');
         const resourcesSection = document.querySelector('.resources-section');
         if (resourceCards.length > 0 && resourcesSection) {
           gsap.set(resourceCards, { y: 60, opacity: 0 });
           gsap.to(resourceCards, {
-            scrollTrigger: {
-              trigger: resourcesSection,
-              start: 'top 75%',
-            },
-            y: 0,
-            opacity: 1,
-            stagger: 0.15,
-            duration: 0.8,
-            ease: 'power2.out'
+            scrollTrigger: { trigger: resourcesSection, start: 'top 75%' },
+            y: 0, opacity: 1, stagger: 0.15, duration: 0.8, ease: 'power2.out'
           });
         }
 
-        // FAQ items - Set initial state, then animate from scroll
         const faqItems = document.querySelectorAll('.faq-item');
         const faqSection = document.querySelector('.faq-section');
         if (faqItems.length > 0 && faqSection) {
           gsap.set(faqItems, { x: -40, opacity: 0 });
           gsap.to(faqItems, {
-            scrollTrigger: {
-              trigger: faqSection,
-              start: 'top 75%',
-            },
-            x: 0,
-            opacity: 1,
-            stagger: 0.1,
-            duration: 0.7,
-            ease: 'power2.out'
+            scrollTrigger: { trigger: faqSection, start: 'top 75%' },
+            x: 0, opacity: 1, stagger: 0.1, duration: 0.7, ease: 'power2.out'
           });
         }
 
-        // CRUCIAL: Refresh ScrollTrigger after all animations are registered
         ScrollTrigger.refresh();
 
       }, containerRef);
@@ -439,21 +380,34 @@ export default function Home() {
     });
 
     return () => cancelAnimationFrame(timer);
-  }, []); // Run only once on mount
+  }, []);
 
   return (
     <div ref={containerRef} className="bg-stone-50">
       {/* Scroll Progress Bar */}
       <div className="fixed top-0 left-0 right-0 h-1 bg-stone-200 z-50">
-        <div 
+        <div
           className="h-full bg-emerald-600 transition-all duration-300"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
-      {/* Hero Section */}
+      {/* ===================== HERO SECTION ===================== */}
+      {/* Uses Strains.webp as the hero background image overlay */}
       <section ref={heroRef} className="min-h-screen relative bg-emerald-950 overflow-hidden flex items-center">
-        {/* Animated grid background */}
+        {/* ✅ LOCAL IMAGE: Strains.webp as subtle hero background */}
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="/src/Strains.webp"
+            alt="Cannabis strains background"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/80 to-emerald-950/60" />
+        </div>
+
+        {/* Animated grid lines on top */}
         <div className="absolute inset-0 opacity-10 overflow-hidden">
           {[...Array(12)].map((_, i) => (
             <div
@@ -466,8 +420,21 @@ export default function Home() {
 
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 py-32 w-full">
           <div className="max-w-6xl">
-            
-            <h1 className="hero-title text-[clamp(3rem,13vw,12rem)] leading-[0.85] font-light text-stone-50 mb-12" style={{ perspective: '1200px' }}>
+            {/* ✅ Logo in hero (optional — shown inline) */}
+            <div className="mb-10">
+              <Image
+                src="/src/logo.png"
+                alt="Brand logo"
+                width={120}
+                height={40}
+                className="object-contain opacity-90"
+              />
+            </div>
+
+            <h1
+              className="hero-title text-[clamp(3rem,13vw,12rem)] leading-[0.85] font-light text-stone-50 mb-12"
+              style={{ perspective: '1200px' }}
+            >
               Pure<br/>
               <span className="italic font-serif text-emerald-400">Botanical</span><br/>
               Excellence
@@ -478,8 +445,8 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">
-              <Link 
-                href="/products" 
+              <Link
+                href="/products"
                 className="hero-badge inline-flex items-center gap-3 bg-emerald-500 text-emerald-950 px-10 py-5 font-semibold hover:bg-emerald-400 transition-colors text-lg"
               >
                 Explore Collection
@@ -487,8 +454,8 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
-              <Link 
-                href="/about" 
+              <Link
+                href="/about"
                 className="hero-badge inline-flex items-center gap-3 border-2 border-stone-600 text-stone-50 px-10 py-5 font-semibold hover:border-emerald-400 hover:text-emerald-400 transition-colors text-lg"
               >
                 Our Story
@@ -497,24 +464,14 @@ export default function Home() {
 
             {/* Trust indicators */}
             <div className="flex flex-wrap gap-6 text-stone-400">
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">100% Lab Tested</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">Organic Growing</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">Discreet Delivery</span>
-              </div>
+              {['100% Lab Tested', 'Organic Growing', 'Discreet Delivery'].map((label) => (
+                <div key={label} className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm">{label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -528,7 +485,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* ===================== STATS SECTION ===================== */}
       <section className="stats-section py-24 bg-white border-b border-stone-200">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
@@ -550,9 +507,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Strain Types Education */}
-      <section className="strain-types py-32 bg-white">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
+      {/* ===================== STRAIN TYPES ===================== */}
+      {/* Uses strains-section.webp as the background of this section */}
+      <section className="strain-types py-32 relative overflow-hidden">
+        {/* ✅ LOCAL IMAGE: strains-section.webp as section background */}
+        <div className="absolute inset-0">
+          <Image
+            src="/src/strains-section.webp"
+            alt="Strains section background"
+            fill
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-white/92" />
+        </div>
+
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-light text-stone-900 mb-6">
               Cannabis <span className="italic font-serif text-emerald-700">Types Explained</span>
@@ -620,7 +589,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products */}
+      {/* ===================== FEATURED PRODUCTS ===================== */}
+      {/* ✅ Each product card now uses its local image (jamaican-dream.webp, colombian-OG.webp, etc.) */}
       <section className="py-32 bg-white">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
           <div className="grid grid-cols-12 gap-16 mb-20">
@@ -652,6 +622,7 @@ export default function Home() {
                     className="product-card group block bg-stone-50 border border-stone-200 overflow-hidden hover:shadow-2xl hover:border-emerald-600 transition-all duration-500"
                   >
                     <div className="relative h-80 overflow-hidden bg-stone-100">
+                      {/* ✅ LOCAL IMAGE used here for each product */}
                       <Image
                         src={product.image}
                         alt={product.name}
@@ -670,7 +641,7 @@ export default function Home() {
                     <div className="p-6">
                       <h3 className="text-2xl font-light text-stone-900 mb-2">{product.name}</h3>
                       <p className="text-stone-600 text-sm mb-4 line-clamp-2">{product.description}</p>
-                      
+
                       <div className="flex flex-wrap gap-2 mb-4">
                         {product.effects.map((effect, i) => (
                           <span key={i} className="text-xs px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full">
@@ -692,7 +663,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Categories Grid */}
+      {/* ===================== CATEGORIES GRID ===================== */}
+      {/* ✅ Each category card now displays its local image as a background */}
       <section className="categories-section py-32 bg-stone-100">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
           <div className="text-center mb-20">
@@ -707,18 +679,30 @@ export default function Home() {
               <Link
                 key={i}
                 href={`/products?category=${category.name}`}
-                className="category-item group block bg-white border-2 border-stone-200 p-12 hover:border-emerald-600 hover:shadow-xl transition-all duration-300"
+                className="category-item group block relative overflow-hidden border-2 border-stone-200 hover:border-emerald-600 hover:shadow-xl transition-all duration-300"
               >
-                <div className="text-7xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                  {category.icon}
+                {/* ✅ LOCAL IMAGE: category image fills the card top */}
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={category.image}
+                    alt={category.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent" />
+                  <span className="absolute bottom-3 left-4 text-white text-3xl">{category.icon}</span>
                 </div>
-                <h3 className="text-2xl font-light text-stone-900 mb-2">{category.name}</h3>
-                <p className="text-stone-600 text-sm mb-4">{category.desc}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-emerald-700 font-medium">{category.count} Products</span>
-                  <svg className="w-5 h-5 text-emerald-700 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+
+                {/* Card content below image */}
+                <div className="bg-white p-6">
+                  <h3 className="text-xl font-light text-stone-900 mb-1">{category.name}</h3>
+                  <p className="text-stone-600 text-sm mb-4">{category.desc}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-emerald-700 font-medium">{category.count} Products</span>
+                    <svg className="w-5 h-5 text-emerald-700 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </div>
               </Link>
             ))}
@@ -726,7 +710,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Split Section - Process */}
+      {/* ===================== SPLIT SECTION — PROCESS ===================== */}
+      {/* ✅ Uses jamaican-dream.webp for the right-side process image */}
       <section className="split-section py-32 bg-white">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -739,7 +724,7 @@ export default function Home() {
               <p className="text-xl text-stone-600 leading-relaxed mb-8">
                 Every strain in our collection represents months of careful cultivation, precise phenotype selection, and rigorous quality control. We work exclusively with master growers who share our obsession with perfection.
               </p>
-              
+
               <div className="space-y-6 mb-8">
                 {[
                   { title: 'Genetic Selection', desc: 'Premium genetics from renowned breeders worldwide' },
@@ -769,10 +754,11 @@ export default function Home() {
               </Link>
             </div>
 
+            {/* ✅ LOCAL IMAGE: jamaican-dream.webp in split section */}
             <div className="split-image relative h-[600px] overflow-hidden">
               <div className="scale-reveal absolute inset-0">
                 <Image
-                  src="https://images.unsplash.com/photo-1605792657660-596af9009e82?w=1200"
+                  src="/src/jamaican-dream.webp"
                   alt="Cannabis cultivation"
                   fill
                   className="object-cover"
@@ -783,7 +769,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Grid */}
+      {/* ===================== FEATURES GRID ===================== */}
       <section className="py-32 bg-stone-50">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
           <div className="text-center mb-20">
@@ -808,18 +794,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Large Image Banner */}
+      {/* ===================== LARGE IMAGE BANNER ===================== */}
+      {/* ✅ LOCAL IMAGE: colombian-OG.webp for the large mid-page banner */}
       <section className="relative h-[70vh] overflow-hidden">
         <div className="parallax-image absolute inset-0 scale-110">
           <Image
-            src="https://images.unsplash.com/photo-1608424264834-d8a5c8618ea3?w=1600"
+            src="/src/colombian-OG.webp"
             alt="Premium cannabis"
             fill
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/90 to-emerald-950/50"></div>
         </div>
-        
+
         <div className="relative h-full flex items-center">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
             <div className="max-w-2xl text-white">
@@ -835,7 +822,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Resources Section */}
+      {/* ===================== RESOURCES SECTION ===================== */}
       <section className="resources-section py-32 bg-stone-100">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
           <div className="text-center mb-20">
@@ -885,7 +872,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* ===================== FAQ SECTION ===================== */}
       <section className="faq-section py-32 bg-white">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
@@ -908,8 +895,8 @@ export default function Home() {
 
             <div className="space-y-4">
               {faqs.map((faq, i) => (
-                <div 
-                  key={i} 
+                <div
+                  key={i}
                   className="faq-item bg-stone-50 border border-stone-200 overflow-hidden transition-all cursor-pointer"
                 >
                   <button
@@ -917,16 +904,16 @@ export default function Home() {
                     className="w-full flex items-center justify-between p-6 hover:bg-stone-100 transition-colors"
                   >
                     <span className="text-lg text-stone-900 font-medium text-left">{faq.question}</span>
-                    <svg 
+                    <svg
                       className={`w-5 h-5 text-emerald-700 transition-transform ${expandedFAQ === i ? 'rotate-90' : ''}`}
-                      fill="none" 
-                      stroke="currentColor" 
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </button>
-                  
+
                   {expandedFAQ === i && (
                     <div className="px-6 pb-6 border-t border-stone-200 bg-white">
                       <p className="text-stone-600 leading-relaxed">{faq.answer}</p>
@@ -939,7 +926,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* ===================== FINAL CTA ===================== */}
       <section className="py-32 bg-white">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full text-center">
           <h2 className="reveal-text text-6xl lg:text-7xl font-light mb-8 leading-tight">
@@ -950,8 +937,8 @@ export default function Home() {
             Experience the difference that premium, craft-cultivated cannabis makes
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/products" 
+            <Link
+              href="/products"
               className="inline-flex items-center justify-center gap-3 bg-emerald-600 text-white px-12 py-6 font-semibold hover:bg-emerald-700 transition-colors text-lg"
             >
               Shop Collection
@@ -959,8 +946,8 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-            <Link 
-              href="/about" 
+            <Link
+              href="/about"
               className="inline-flex items-center justify-center gap-3 border-2 border-stone-300 text-stone-900 px-12 py-6 font-semibold hover:border-emerald-600 hover:text-emerald-700 transition-colors text-lg"
             >
               Learn More
