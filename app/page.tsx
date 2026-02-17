@@ -640,9 +640,11 @@ export default function Home() {
       {/* Featured Products */}
       <section className="py-32 bg-white">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
-          <div className="grid grid-cols-12 gap-16 mb-20">
-            <div className="col-span-12 md:col-span-5">
-              <div className="sticky top-32">
+          {/* ── FIX: replaced grid-cols-12 with flex-col/flex-row to avoid mobile overflow ── */}
+          <div className="flex flex-col lg:flex-row lg:gap-16 mb-20">
+            {/* Sidebar */}
+            <div className="w-full lg:w-5/12 mb-12 lg:mb-0 flex-shrink-0">
+              <div className="lg:sticky lg:top-32">
                 <div className="h-px w-16 bg-emerald-600 mb-6"></div>
                 <h2 className="reveal-text text-5xl font-light mb-8 text-stone-900 leading-tight">
                   Featured<br/>
@@ -660,7 +662,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-span-12 md:col-span-7">
+            {/* Products grid */}
+            <div className="w-full lg:w-7/12 min-w-0">
               <div className="products-grid grid grid-cols-1 sm:grid-cols-2 gap-8">
                 {products.map((product) => (
                   <Link
